@@ -87,6 +87,17 @@ links.forEach((link) => {
   });
 });
 
+// active nav menu with scroll
+function navHighlight() {
+  let length = sections.length;
+  while (--length && window.scrollY + 100 < sections[length].offsetTop) {}
+  for (li of links) {
+    li.classList.remove("active");
+  }
+  links[length].classList.add("active");
+}
+window.addEventListener("scroll", navHighlight);
+
 /*
  * End Main Functions
  */
