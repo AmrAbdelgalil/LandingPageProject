@@ -89,6 +89,15 @@ section {
   transition: ease 0.3s all;
 }
 
+/* usability across modern desktop, tablet, and phone browsers */
+/* devices (portrait phones, less than 768px) */
+@media (max-width: 768px) {
+  .navbar__menu li {
+    display: block;
+    text-align: center;
+  }
+}
+
 /* Header Styles */
 .page__header {
   background: #fff;

@@ -60,7 +60,7 @@ function addSection(name) {
 
 //dynamic build of navigation bar according to adding or removing section
 for (let i = 0; i < sections.length; i++) {
-  addSection(sections[i].getElementsByTagName("h2")[0].innerText); //create name of section from h2
+  addSection(sections[i].getElementsByTagName("h2")[0].innerHTML); //create name of section from h2
 }
 
 // Add class 'active' to section when near top of viewport
@@ -90,10 +90,3 @@ links.forEach((link) => {
 /*
  * End Main Functions
  */
-//styling of navbar
-document.querySelectorAll("li").forEach((menulink) => {
-  menulink.style.cssText = "display: inline-block";
-});
-document.querySelectorAll("a").forEach((item) => {
-  item.style.cssText = "text-decoration: none";
-});
