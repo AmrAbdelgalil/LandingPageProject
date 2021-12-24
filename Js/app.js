@@ -64,18 +64,18 @@ for (let i = 0; i < sections.length; i++) {
 }
 
 // Add class 'active' to section when near top of viewport
-window.onscroll = function () {
-  sections.forEach((section) => {
-    if (
-      section.getBoundingClientRect().top <= 150 &&
-      section.getBoundingClientRect().top >= -410
-    ) {
-      section.classList.add("your-active-class");
-    } else {
-      section.classList.remove("your-active-class");
-    }
-  });
-};
+// window.onscroll = function () {
+//   sections.forEach((section) => {
+//     if (
+//       section.getBoundingClientRect().top <= 150 &&
+//       section.getBoundingClientRect().top >= -410
+//     ) {
+//       section.classList.add("your-active-class");
+//     } else {
+//       section.classList.remove("your-active-class");
+//     }
+//   });
+// };
 
 // Scroll to anchor href smoothly using scrollIntoView event
 const links = document.querySelectorAll("a");
@@ -88,13 +88,18 @@ links.forEach((link) => {
 });
 
 // active nav menu with scroll
+// Add class 'active' to section when near top of viewport
 function navHighlight() {
   let length = sections.length;
   while (--length && window.scrollY + 100 < sections[length].offsetTop) {}
   for (li of links) {
     li.classList.remove("active");
   }
+  sections.forEach((section) => {
+    section.classList.remove("your-active-class");
+  });
   links[length].classList.add("active");
+  sections[length].classList.add("your-active-class");
 }
 window.addEventListener("scroll", navHighlight);
 
